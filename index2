@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marianne Moreira Godoy</title>
+<style>
+/* ─────────────────────────────────────────────
+   Minimal academic style, modeled on lcurrier.github.io
+   Single centered column · plain type · quiet links
+   ───────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:   #222222;
+  --muted: #666666;
+  --light: #999999;
+  --accent: #2F62C8;  /* your royal blue, sampled from the image */
+  --link:  #2F62C8;
+  --rule:  #dddddd;
+  --bg:    #ffffff;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--bg);
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Language toggle (kept from your version) ── */
+.lang-row {
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+.lang-btn {
+  font-family: inherit;
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+}
+.lang-btn:hover { color: var(--link); border-color: var(--link); }
+
+/* ── Centered header, lcurrier proportions ── */
+header { text-align: center; margin-bottom: 2.75rem; }
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.4rem;
+  color: var(--accent);
+}
+
+.headshot {
+  width: 200px;
+  height: auto;
+  display: inline-block;
+  margin-bottom: 1.4rem;
+}
+
+.credentials {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+  line-height: 1.6;
+}
+.credentials .sep { color: var(--light); font-weight: 400; padding: 0 0.35rem; }
+.credentials a { color: inherit; }
+.credentials a:hover { color: var(--link); }
+
+.email {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+.header-links { font-size: 0.9rem; }
+.header-links a { margin: 0 0.5rem; }
+
+/* ── Affiliation logos ── */
+.affil-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.2rem;
+  margin-top: 1.6rem;
+}
+.affil-strip a {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: opacity 0.2s, filter 0.2s;
+}
+.affil-strip a:hover { opacity: 1; filter: grayscale(0%); }
+.affil-strip img { display: block; width: auto; }
+.affil-logo-nhh { height: 40px; }
+.affil-logo-fair { height: 33px; }
+
+/* ── Section headers: small, spaced, like lcurrier's h6 ── */
+h6.section {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 2.75rem 0 1.1rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── Body text ── */
+p.body-p { margin-bottom: 1rem; }
+p.body-p.grey { color: var(--muted); font-size: 0.94rem; }
+
+/* ── Papers ── */
+.paper { margin-bottom: 1.6rem; }
+.paper-title {
+  font-weight: 600;
+  line-height: 1.5;
+}
+.paper-title .status {
+  font-weight: 400;
+  color: var(--muted);
+}
+.paper-authors {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.paper-authors em { font-style: italic; }
+.paper-links {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Abstract toggle — bold "Abstract" like lcurrier */
+details.abstract { margin-top: 0.35rem; }
+details.abstract summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--ink);
+  list-style: none;
+  display: inline-block;
+}
+details.abstract summary::-webkit-details-marker { display: none; }
+details.abstract summary::after { content: " ▸"; font-weight: 400; color: var(--light); }
+details.abstract[open] summary::after { content: " ▾"; }
+details.abstract .abstract-text {
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.75;
+  margin-top: 0.5rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--accent);
+}
+details.abstract .abstract-text p { margin-bottom: 0.6rem; }
+details.abstract .abstract-text p:last-child { margin-bottom: 0; }
+
+/* ── Contact ── */
+.contact p { margin-bottom: 0.2rem; font-size: 0.94rem; }
+.contact .c-label { font-weight: 700; font-size: 0.85rem; margin-top: 1rem; }
+.contact .c-label:first-child { margin-top: 0; }
+
+/* ── Footer ── */
+footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.78rem;
+  color: var(--light);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 520px) {
+  body { padding: 1.5rem 1.1rem 3rem; }
+  h1 { font-size: 1.65rem; }
+  .headshot { width: 165px; }
+  .affil-strip { gap: 1.5rem; }
+  .affil-logo-nhh { height: 32px; }
+  .affil-logo-fair { height: 26px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="lang-row">
+    <button class="lang-btn" onclick="toggleLang()" id="lang-btn">Traducir a español</button>
+  </div>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <h1>Marianne Moreira Godoy</h1>
+
+    <img class="headshot" src="EFP_8325.jpeg" alt="Marianne Moreira Godoy">
+
+    <p class="credentials">
+      <span data-en="PhD Research Scholar" data-es="Investigadora Doctoral">PhD Research Scholar</span><span class="sep">·</span><a href="https://www.nhh.no/en/departments/economics/" target="_blank" data-en="Economics, NHH Norwegian School of Economics" data-es="Economía, Escuela Noruega de Economía (NHH)">Economics, NHH Norwegian School of Economics</a><br>
+      <a href="https://www.nhh.no/en/research-centres/fair/" target="_blank" data-en="FAIR Centre for Empirical Labor Economics" data-es="Centro FAIR de Economía Laboral Empírica">FAIR Centre for Empirical Labor Economics</a><br>
+      <span data-en="Fields: Labour and Education Economics" data-es="Áreas: Economía Laboral y de la Educación">Fields: Labour and Education Economics</span>
+    </p>
+
+    <p class="email">marianne.godoy [at] nhh.no</p>
+
+    <p class="header-links">
+      <a href="https://www.nhh.no/globalassets/departments/economics/cv/cv---m-moreira-godoy-sept-2025.pdf" target="_blank">CV</a>
+      <a href="https://scholar.google.com/citations?user=OIgK7lUAAAAJ&hl=es" target="_blank">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/marianne-moreira-godoy" target="_blank">LinkedIn</a>
+      <a href="https://www.nhh.no/en/employees/faculty/marianne-andrea-moreira-godoy/" target="_blank" data-en="NHH Profile" data-es="Perfil NHH">NHH Profile</a>
+    </p>
+
+    <div class="affil-strip">
+      <a href="https://www.nhh.no/" target="_blank">
+        <img class="affil-logo-nhh" src="https://www.nhh.no/contentassets/dab910c2b4b441648c82105332b974ac/nhh_logo_1f_positiv_helblaa.png" alt="NHH">
+      </a>
+      <a href="https://www.nhh.no/en/research-centres/fair/" target="_blank">
+        <img class="affil-logo-fair" src="https://www.nhh.no/contentassets/d87d7a2613bc41d7a7e7e4358b4c578d/fair-lang-01.png" alt="FAIR">
+      </a>
+    </div>
+  </header>
+
+  <!-- ── ABOUT ── -->
+  <h6 class="section" data-en="About me" data-es="Sobre mí">About me</h6>
+  <p class="body-p"
+     data-en="I am a PhD Research Scholar at the Department of Economics at the Norwegian School of Economics, affiliated with the FAIR Centre for Empirical Labor Economics. My research lies in labour and education economics, asking how socioemotional skills shape the decisions that drive inequality and intergenerational poverty — from labour market attachment and educational choices to parenting and family formation — and how they interact with the policies that target these outcomes."
+     data-es="Soy Investigadora Doctoral en el Departamento de Economía de la Escuela Noruega de Economía (NHH), afiliada al Centro FAIR de Economía Laboral Empírica. Mi investigación se sitúa en la economía laboral y de la educación, preguntando cómo las habilidades socioemocionales moldean las decisiones que impulsan la desigualdad y la pobreza intergeneracional — desde el apego al mercado laboral y las decisiones educativas hasta la crianza y la formación familiar — y cómo interactúan con las políticas que apuntan a estos resultados.">
+    I am a PhD Research Scholar at the Department of Economics at the Norwegian School of Economics, affiliated with the FAIR Centre for Empirical Labor Economics. My research lies in labour and education economics, asking how socioemotional skills shape the decisions that drive inequality and intergenerational poverty — from labour market attachment and educational choices to parenting and family formation — and how they interact with the policies that target these outcomes.
+  </p>
+  <p class="body-p grey"
+     data-en="Before the PhD, I worked with international research teams and policy institutions across Norway, Chile, and Tanzania, contributing to large-scale field experiments, policy evaluations, and collaborations with government agencies. I hold an MSc in Applied Economics from FCFM and a BSc in Business Engineering from FEN, both at the University of Chile."
+     data-es="Antes del doctorado, trabajé con equipos de investigación internacionales e instituciones de política pública en Noruega, Chile y Tanzania, contribuyendo a experimentos de campo a gran escala, evaluaciones de políticas y colaboraciones con agencias gubernamentales. Tengo un Magíster en Economía Aplicada de la FCFM y una Licenciatura en Ingeniería Comercial de la FEN, ambos en la Universidad de Chile.">
+    Before the PhD, I worked with international research teams and policy institutions across Norway, Chile, and Tanzania, contributing to large-scale field experiments, policy evaluations, and collaborations with government agencies. I hold an MSc in Applied Economics from FCFM and a BSc in Business Engineering from FEN, both at the University of Chile.
+  </p>
+
+  <!-- ── WORKING PAPERS ── -->
+  <h6 class="section" data-en="Working Papers" data-es="Documentos de Trabajo">Working Papers</h6>
+
+  <div class="paper">
+    <div class="paper-title"
+         data-en="Self-Confidence, Gender, and the Pursuit of Competitive Higher Education"
+         data-es="Autoconfianza, Género y la Búsqueda de Educación Superior Competitiva">
+      Self-Confidence, Gender, and the Pursuit of Competitive Higher Education
+    </div>
+    <div class="paper-authors">
+      <span data-en="With A. Mizala and D. Schwartz" data-es="Con A. Mizala y D. Schwartz">With A. Mizala and D. Schwartz</span>
+    </div>
+    <details class="abstract">
+      <summary data-en="Abstract" data-es="Resumen">Abstract</summary>
+      <div class="abstract-text">
+        <p data-en="Examines how self-confidence shapes gendered sorting into competitive higher education in Chile. Supported by ANID/PIA Basal Funds for Centers of Excellence."
+           data-es="Examina cómo la autoconfianza moldea la selección por género en la educación superior competitiva en Chile. Financiado por los Fondos Basales ANID/PIA para Centros de Excelencia.">
+          Examines how self-confidence shapes gendered sorting into competitive higher education in Chile. Supported by ANID/PIA Basal Funds for Centers of Excellence.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title"
+         data-en="The Role of Parental Character Virtues in Promoting Children's Character Virtues in Rural Tanzania"
+         data-es="El Rol de las Virtudes de Carácter Parental en la Promoción de las Virtudes de Carácter de los Niños en Tanzania Rural">
+      The Role of Parental Character Virtues in Promoting Children's Character Virtues in Rural Tanzania
+    </div>
+    <div class="paper-authors">
+      <span data-en="With I. Almås, O. Attanasio, M. Bornstein, B. Caeyers, P. Jervis and R. Lerner"
+            data-es="Con I. Almås, O. Attanasio, M. Bornstein, B. Caeyers, P. Jervis y R. Lerner">With I. Almås, O. Attanasio, M. Bornstein, B. Caeyers, P. Jervis and R. Lerner</span>
+    </div>
+    <details class="abstract">
+      <summary data-en="Abstract" data-es="Resumen">Abstract</summary>
+      <div class="abstract-text">
+        <p data-en="A field study of intergenerational transmission of character virtues in rural Tanzania, part of the Kizazi Kijacho RCT. Supported by the Templeton Foundation."
+           data-es="Un estudio de campo sobre la transmisión intergeneracional de virtudes de carácter en Tanzania rural, parte del RCT Kizazi Kijacho. Financiado por la Fundación Templeton.">
+          A field study of intergenerational transmission of character virtues in rural Tanzania, part of the Kizazi Kijacho RCT. Supported by the Templeton Foundation.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title"
+         data-en="The Effect of Financial Management Tools on Health and Financial Wellbeing"
+         data-es="El Efecto de Herramientas de Gestión Financiera en la Salud y el Bienestar Financiero">
+      The Effect of Financial Management Tools on Health and Financial Wellbeing
+    </div>
+    <div class="paper-authors">
+      <span data-en="With M. Olivares, D. Schwartz, J. Arenas, I. Torres and V. Sule"
+            data-es="Con M. Olivares, D. Schwartz, J. Arenas, I. Torres y V. Sule">With M. Olivares, D. Schwartz, J. Arenas, I. Torres and V. Sule</span>
+    </div>
+    <details class="abstract">
+      <summary data-en="Abstract" data-es="Resumen">Abstract</summary>
+      <div class="abstract-text">
+        <p data-en="Field experiment in Chile evaluating the impact of a fintech app on workers' personal finances and wellbeing. With ACHS and CMF. Supported by SUSESO."
+           data-es="Experimento de campo en Chile que evalúa el impacto de una aplicación fintech en las finanzas personales y el bienestar de los trabajadores. Con ACHS y CMF. Financiado por SUSESO.">
+          Field experiment in Chile evaluating the impact of a fintech app on workers' personal finances and wellbeing. With ACHS and CMF. Supported by SUSESO.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── PUBLISHED PAPERS ── -->
+  <h6 class="section" data-en="Published Papers" data-es="Publicaciones">Published Papers</h6>
+
+  <div class="paper">
+    <div class="paper-title"
+         data-en="Lights Out Alert: Evidence-Based Communication Strategies to Prepare for Energy Shortages"
+         data-es="Alerta de Apagón: Estrategias de Comunicación Basadas en Evidencia para Prepararse ante Escasez Energética">
+      Lights Out Alert: Evidence-Based Communication Strategies to Prepare for Energy Shortages
+      <span class="status"> (<em data-en="Energy Research &amp; Social Science" data-es="Energy Research &amp; Social Science">Energy Research &amp; Social Science</em>, 127, 104159, 2025)</span>
+    </div>
+    <div class="paper-authors">
+      Curotto, N., Moreira, M., Moreno, R., Schwartz, D.
+    </div>
+    <div class="paper-links">
+      [<a href="https://doi.org/10.1016/j.erss.2025.104159" target="_blank" data-en="publication" data-es="publicación">publication</a>]
+    </div>
+    <details class="abstract">
+      <summary data-en="Abstract" data-es="Resumen">Abstract</summary>
+      <div class="abstract-text">
+        <p data-en="Field evidence on how communication framing shapes household behaviour during energy shortages. Working with Chile's Ministry of Energy, we designed and tested communication strategies in a large-scale field experiment. Supported by ISCI and ANID."
+           data-es="Evidencia de campo sobre cómo el encuadre de la comunicación moldea el comportamiento de los hogares durante escasez energética. Trabajando con el Ministerio de Energía de Chile, diseñamos y probamos estrategias de comunicación en un experimento de campo a gran escala. Financiado por ISCI y ANID.">
+          Field evidence on how communication framing shapes household behaviour during energy shortages. Working with Chile's Ministry of Energy, we designed and tested communication strategies in a large-scale field experiment. Supported by ISCI and ANID.
+        </p>
+        <p data-en="Amid escalating risks of energy shortages driven by climate change and sociopolitical instability, effective risk communication strategies are essential for fostering public cooperation in energy-saving initiatives. This study investigates how the design of energy risk communication campaigns can influence public response. Drawing on a behavioral decision framework, we conducted large-scale, randomized online experiments in the UK (N = 3,836) and Chile (N = 2,607) during periods of potential energy shortages. We tested four key factors influencing the impact of energy risk communication campaigns: the framing of the crisis's cause (local vs. global), the credibility and role of the message source, the emphasis on specific energy-saving actions, and the underlying motivations driving household actions (economic, environmental, or social). Our findings indicate that messages emphasizing locally controllable causes, such as domestic energy policies, can enhance willingness to save energy. In the UK, which is geographically closer to the Ukraine–Russia war, framing the cause of the crisis around the conflict also proves particularly effective. Government-sourced messages that highlight specific industry efforts to mitigate the crisis improve public perceptions of institutions. Campaigns focusing on high-impact energy-saving recommendations are more effective in encouraging commitment to saving energy than a mixed approach. Prosocial messages that frame energy saving as preventing blackouts increase risk awareness but do not outperform messages framed around saving money in terms of energy-saving intentions. These insights underscore the need for targeted, contextually relevant risk communication strategies and offer policymakers valuable guidance for improving public response and engagement in preparation for energy crises."
+           data-es="Ante el aumento de los riesgos de escasez energética impulsados por el cambio climático y la inestabilidad sociopolítica, las estrategias efectivas de comunicación de riesgos son esenciales para fomentar la cooperación pública en iniciativas de ahorro energético. Este estudio investiga cómo el diseño de campañas de comunicación de riesgos energéticos puede influir en la respuesta pública. Basándonos en un marco de decisión conductual, realizamos experimentos en línea aleatorizados a gran escala en el Reino Unido (N = 3.836) y Chile (N = 2.607) durante períodos de posible escasez energética.">
+          Amid escalating risks of energy shortages driven by climate change and sociopolitical instability, effective risk communication strategies are essential for fostering public cooperation in energy-saving initiatives. This study investigates how the design of energy risk communication campaigns can influence public response. Drawing on a behavioral decision framework, we conducted large-scale, randomized online experiments in the UK (N = 3,836) and Chile (N = 2,607) during periods of potential energy shortages. We tested four key factors influencing the impact of energy risk communication campaigns: the framing of the crisis's cause (local vs. global), the credibility and role of the message source, the emphasis on specific energy-saving actions, and the underlying motivations driving household actions (economic, environmental, or social). Our findings indicate that messages emphasizing locally controllable causes, such as domestic energy policies, can enhance willingness to save energy. In the UK, which is geographically closer to the Ukraine–Russia war, framing the cause of the crisis around the conflict also proves particularly effective. Government-sourced messages that highlight specific industry efforts to mitigate the crisis improve public perceptions of institutions. Campaigns focusing on high-impact energy-saving recommendations are more effective in encouraging commitment to saving energy than a mixed approach. Prosocial messages that frame energy saving as preventing blackouts increase risk awareness but do not outperform messages framed around saving money in terms of energy-saving intentions. These insights underscore the need for targeted, contextually relevant risk communication strategies and offer policymakers valuable guidance for improving public response and engagement in preparation for energy crises.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <h6 class="section" data-en="Contact" data-es="Contacto">Contact</h6>
+  <div class="contact">
+    <p class="c-label" data-en="Address" data-es="Dirección">Address</p>
+    <p>NHH Norwegian School of Economics<br>Helleveien 30<br>5045 Bergen, Norway</p>
+    <p class="c-label">Email</p>
+    <p>marianne.godoy [at] nhh.no</p>
+  </div>
+
+  <footer>
+    <span>Marianne Moreira Godoy</span>
+    <span data-en="Last updated September 2025" data-es="Última actualización septiembre 2025">Last updated September 2025</span>
+  </footer>
+
+</div>
+
+<script>
+let lang = 'en';
+function toggleLang() {
+  lang = lang === 'en' ? 'es' : 'en';
+  document.getElementById('lang-btn').textContent = lang === 'en' ? 'Traducir a español' : 'Translate to English';
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const v = el.getAttribute('data-' + lang);
+    if (v) el.innerHTML = v;
+  });
+}
+</script>
+</body>
+</html>
