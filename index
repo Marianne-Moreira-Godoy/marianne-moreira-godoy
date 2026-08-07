@@ -6,7 +6,7 @@
 <title>Marianne Moreira Godoy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 /* ─────────────────────────────────────────────
    Minimal academic style, modeled on lcurrier.github.io
@@ -232,7 +232,7 @@ footer {
 
     <p class="header-links">
       <a href="https://www.nhh.no/globalassets/departments/economics/cv/cv---m-moreira-godoy-sept-2025.pdf" target="_blank">CV</a>
-      <a href="https://scholar.google.com/citations?user=OIgK7lUAAAAJ&hl=es" target="_blank">Google Scholar</a>
+      <a href="https://scholar.google.com/citations?user=OIgK7lUAAAAJ&amp;hl=es" target="_blank">Google Scholar</a>
       <a href="https://www.linkedin.com/in/marianne-moreira-godoy" target="_blank">LinkedIn</a>
       <a href="https://www.nhh.no/en/employees/faculty/marianne-andrea-moreira-godoy/" target="_blank" data-en="NHH Profile" data-es="Perfil NHH">NHH Profile</a>
     </p>
